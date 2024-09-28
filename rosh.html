@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חידון ראש השנה המורחב</title>
+    <style>
+        @keyframes backgroundAnimation {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 15s ease infinite;
+            margin: 0;
+            padding: 20px;
+            text-align: right;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #4a4a4a;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .question {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .question:hover {
+            transform: translateY(-5px);
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 20px auto;
+        }
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        #feedback {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.2em;
+            color: #4a4a4a;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        label {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>חידון ראש השנה המורחב</h1>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. מתי חל ראש השנה?</p>
+                <input type="radio" name="q1" value="a" id="q1a"> <label for="q1a">א' בתשרי</label><br>
+                <input type="radio" name="q1" value="b" id="q1b"> <label for="q1b">ט"ו בשבט</label><br>
+                <input type="radio" name="q1" value="c" id="q1c"> <label for="q1c">י' בתשרי</label><br>
+            </div>
+
+            <div class="question">
+                <p>2. אילו מאכלים נהוג לאכול בראש השנה? (בחר את כל התשובות הנכונות)</p>
+                <input type="checkbox" name="q2" value="a" id="q2a"> <label for="q2a">תפוח בדבש</label><br>
+                <input type="checkbox" name="q2" value="b" id="q2b"> <label for="q2b">רימון</label><br>
+                <input type="checkbox" name="q2" value="c" id="q2c"> <label for="q2c">גזר</label><br>
+                <input type="checkbox" name="q2" value="d" id="q2d"> <label for="q2d">פיצה</label><br>
+            </div>
+
+            <div class="question">
+                <p>3. מהי המשמעות של תקיעת השופר?</p>
+                <textarea name="q3" rows="4" cols="50"></textarea>
+            </div>
+
+            <div class="question">
+                <p>4. כמה ימים חוגגים את ראש השנה?</p>
+                <input type="radio" name="q4" value="a" id="q4a"> <label for="q4a">יום אחד</label><br>
+                <input type="radio" name="q4" value="b" id="q4b"> <label for="q4b">יומיים</label><br>
+                <input type="radio" name="q4" value="c" id="q4c"> <label for="q4c">שלושה ימים</label><br>
+            </div>
+
+            <div class="question">
+                <p>5. איזה כינוי נוסף יש לראש השנה? (בחר את כל התשובות הנכונות)</p>
+                <input type="checkbox" name="q5" value="a" id="q5a"> <label for="q5a">יום הדין</label><br>
+                <input type="checkbox" name="q5" value="b" id="q5b"> <label for="q5b">יום תרועה</label><br>
+                <input type="checkbox" name="q5" value="c" id="q5c"> <label for="q5c">יום הזיכרון</label><br>
+                <input type="checkbox" name="q5" value="d" id="q5d"> <label for="q5d">חג האביב</label><br>
+            </div>
+
+            <button type="submit">שלח תשובות</button>
+        </form>
+        <div id="feedback"></div>
+    </div>
+
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let score = 0;
+            let feedback = '';
+
+            // Question 1
+            const q1Answer = document.querySelector('input[name="q1"]:checked');
+            if (q1Answer && q1Answer.value === 'a') {
+                score++;
+                feedback += 'שאלה 1: נכון! ';
+            } else {
+                feedback += 'שאלה 1: לא נכון. התשובה הנכונה היא א\' בתשרי. ';
+            }
+
+            // Question 2
+            const q2Answers = document.querySelectorAll('input[name="q2"]:checked');
+            const correctQ2Answers = ['a', 'b', 'c'];
+            if (q2Answers.length === correctQ2Answers.length && 
+                Array.from(q2Answers).every(answer => correctQ2Answers.includes(answer.value))) {
+                score++;
+                feedback += 'שאלה 2: נכון! ';
+            } else {
+                feedback += 'שאלה 2: לא נכון. המאכלים הנכונים הם תפוח בדבש, רימון וגזר. ';
+            }
+
+            // Question 3
+            const q3Answer = document.querySelector('textarea[name="q3"]').value.trim().toLowerCase();
+            if (q3Answer.includes('תשובה') || q3Answer.includes('תיקון') || q3Answer.includes('התעוררות')) {
+                score++;
+                feedback += 'שאלה 3: תשובה טובה! ';
+            } else {
+                feedback += 'שאלה 3: תודה על התשובה. תקיעת השופר מסמלת קריאה לתשובה, תיקון והתעוררות רוחנית. ';
+            }
+
+            // Question 4
+            const q4Answer = document.querySelector('input[name="q4"]:checked');
+            if (q4Answer && q4Answer.value === 'b') {
+                score++;
+                feedback += 'שאלה 4: נכון! ';
+            } else {
+                feedback += 'שאלה 4: לא נכון. ראש השנה נחגג במשך יומיים. ';
+            }
+
+            // Question 5
+            const q5Answers = document.querySelectorAll('input[name="q5"]:checked');
+            const correctQ5Answers = ['a', 'b', 'c'];
+            if (q5Answers.length === correctQ5Answers.length && 
+                Array.from(q5Answers).every(answer => correctQ5Answers.includes(answer.value))) {
+                score++;
+                feedback += 'שאלה 5: נכון! ';
+            } else {
+                feedback += 'שאלה 5: לא נכון. הכינויים הנכונים הם יום הדין, יום תרועה ויום הזיכרון. ';
+            }
+
+            feedback += `ציון סופי: ${score} מתוך 5`;
+            document.getElementById('feedback').innerHTML = feedback;
+        });
+    </script>
+</body>
+</html>
