@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>לחמניות מיוחדות</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .rolls-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .roll {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: calc(100% - 30px);
+            max-width: 300px;
+        }
+        .roll h2 {
+            margin-top: 0;
+            color: #444;
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            padding-top: 75%; /* 4:3 Aspect Ratio */
+        }
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .price-sticker {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        #contact {
+            margin-top: 30px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .roll {
+                width: calc(50% - 30px);
+            }
+        }
+        @media (max-width: 480px) {
+            .roll {
+                width: calc(100% - 30px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>לחמניות מיוחדות</h1>
+    
+    <div class="rolls-container">
+        <div class="roll">
+            <h2>כושית עם צמות</h2>
+            <div class="image-container">
+                <img src="https://shvilam.github.io/rolls/rolle-1.jpeg" alt="כושית עם צמות">
+                <div class="price-sticker">רק 2.20</div>
+            </div>
+        </div>
+
+        <div class="roll">
+            <h2>פשוט טעים</h2>
+            <div class="image-container">
+                <img src="https://shvilam.github.io/rolls/rolle-2.jpeg" alt="פשוט טעים">
+                <div class="price-sticker">רק 2.20</div>
+            </div>
+        </div>
+
+        <div class="roll">
+            <h2>עגולה שחומה</h2>
+            <div class="image-container">
+                <img src="https://shvilam.github.io/rolls/rolle-3.jpeg" alt="עגולה שחומה">
+                <div class="price-sticker">רק 2.20</div>
+            </div>
+        </div>
+
+        <div class="roll">
+            <h2>פשוט עם סומסום</h2>
+            <div class="image-container">
+                <img src="https://shvilam.github.io/rolls/rolle-4.jpeg" alt="פשוט סומסום">
+                <div class="price-sticker">רק 2.20</div>
+            </div>
+        </div>
+
+        <div class="roll">
+            <h2>פשוט חום</h2>
+            <div class="image-container">
+                <img src="https://shvilam.github.io/rolls/rolle-5.jpeg" alt="פשוט חום">
+                <div class="price-sticker">רק 2.20</div>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact">
+        <h2>ליצירת קשר</h2>
+        <p>טלפון: +972 54-990-6093</p>
+    </section>
+</body>
+</html>
